@@ -5,8 +5,8 @@ export default class Hotels extends Component {
         return (
             <ul>
                 {this.props.data.map(hotel => {
-                    
-                    return <li key={hotel.name}>{hotel.name}</li>;
+                    const { name, starRating, facilities } = hotel
+                    return <li key={name}>{`name: ${name}, star rating: ${starRating}, facilities: ${[...facilities]}`}</li>;
                 })}
             </ul>
         )
