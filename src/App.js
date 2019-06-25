@@ -14,7 +14,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-              <Checkboxes />
+              <Checkboxes data={this.state.data} />
               <Hotels data={this.state.data} />
             </div>
         )
