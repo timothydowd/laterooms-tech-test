@@ -1,9 +1,12 @@
 
 const getUniqueFacils = (data) => {
     
-    return data;
-
     
+    const allFacils = data.reduce((accFacils, hotel) => {
+        return [...accFacils, ...hotel.facilities]
+    }, [])
+    console.log('allFacils: ', allFacils)
+    return allFacils;
 
 }
 
