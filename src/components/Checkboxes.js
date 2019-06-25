@@ -13,10 +13,16 @@ export default class Checkboxes extends Component {
         console.log('checkboxFacilities: ', this.props.checkboxFacilities)
        
         return (
-            <div>
-                
-                checkboxes
-            
+            <div >
+                 {this.props.checkboxFacilities.map(facility => {
+                    
+                  return (
+                    <div>
+                        <input type="checkbox" name={facility} value={facility} /> 
+                        <label >{facility}</label> 
+                    </div>
+                  )
+                 })}
             </div>
         )
     }
