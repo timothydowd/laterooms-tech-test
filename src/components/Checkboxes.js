@@ -6,7 +6,7 @@ export default class Checkboxes extends Component {
     constructor(props){
         super(props);
         this.state = {
-        //   checkboxFacilities: []
+        
         }
       }
     render() {
@@ -18,7 +18,7 @@ export default class Checkboxes extends Component {
                     
                   return (
                     <div>
-                        <input type="checkbox" name={facility} value={facility} /> 
+                        <input type="checkbox" name={facility} value={facility} onChange={this.toggleCheckbox} /> 
                         <label >{facility}</label> 
                     </div>
                   )
@@ -29,8 +29,7 @@ export default class Checkboxes extends Component {
 
     
 
-    componentDidMount(){
-        
-       
+    toggleCheckbox (event) {
+        console.log('toggle: ', event.target.value)
     }
 }
