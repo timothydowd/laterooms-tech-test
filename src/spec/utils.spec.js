@@ -35,4 +35,17 @@ describe('getUniqueFacils', () => {
         }]
         expect(getUniqueFacils(hotels)).to.eql(["car park", "pool"])
       });
+      it('when passed 2 hotels with differing facilities, returns all facilities', () => {
+        const hotels = [{
+          "name": "hotelone",
+          "starRating": 5,
+          "facilities": ["car park", "pool"]
+        },
+        {
+          "name": "hoteltwo",
+          "starRating": 5,
+          "facilities": ["bar", "lounge"]
+        }]
+        expect(getUniqueFacils(hotels)).to.eql(["car park", "pool", "bar", "lounge"])
+      });
 });
