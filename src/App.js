@@ -1,12 +1,14 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import Checkboxes from './components/Checkboxes'
+import Hotels from './components/Hotels'
 
-function App() {
-  return (
-    <div className="App">
-      hi
-    </div>
-  );
+export default class App extends Component {
+    render() {
+        return (
+            <div>
+              <Checkboxes />
+              <Hotels />
+            </div>
+        )
+    }
 }
-
-export default App;
