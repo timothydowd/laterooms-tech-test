@@ -48,4 +48,28 @@ describe('getUniqueFacils', () => {
         }]
         expect(getUniqueFacils(hotels)).to.eql(["car park", "pool", "bar", "lounge"])
       });
+      it('when passed a number of hotels with differing overlapping facilities, returns all unique facilities', () => {
+        const hotels = [{
+          "name": "hotelone",
+          "starRating": 5,
+          "facilities": ["car park", "pool", "gym"]
+        },
+        {
+          "name": "hoteltwo",
+          "starRating": 5,
+          "facilities": ["bar", "lounge"]
+        },
+        {
+          "name": "hotelthree",
+          "starRating": 5,
+          "facilities": ["terrace", "pool", "gym"]
+        },
+        {
+          "name": "hotelfour",
+          "starRating": 5,
+          "facilities": ["bar", "sauna", "restaurant"]
+        },
+      ]
+        expect(getUniqueFacils(hotels)).to.eql(["car park", "pool", "gym", "bar", "lounge", "terrace", "sauna", "restaurant"])
+      });
 });
