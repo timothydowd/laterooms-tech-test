@@ -31,7 +31,7 @@ export default class App extends Component {
 
     toggleCheckedBoolean = (facility) => {
       const toggledCheckboxes = toggleCheckedBooleanInCheckboxFacilites(this.state.checkboxFacilities, facility)
-      console.log('toggledCheckboxes', toggledCheckboxes)
+      this.setState({ checkboxFacilities: toggledCheckboxes})
     }
 
     render() {
