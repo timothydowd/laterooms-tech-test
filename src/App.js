@@ -30,9 +30,6 @@ export default class App extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-      console.log('checkBoxFacilities', this.state.checkboxFacilities)
-      console.log('this.filterHotels', this.filterHotels())
-      
       if(prevState.checkboxFacilities !== this.state.checkboxFacilities){
         this.setState({ filteredHotels: this.filterHotels()})
       }

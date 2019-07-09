@@ -1,14 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Hotels extends Component {
-    render() {
+const Hotels = (props) => {
+   
         return (
             <ul>
-                {this.props.data.map(hotel => {
+                {props.data.map(hotel => {
                     const { name, starRating, facilities } = hotel
                     return <li key={name}>{`name: ${name}, star rating: ${starRating}, facilities: ${[...facilities]}`}</li>;
                 })}
             </ul>
         )
-    }
+    
 }
+
+export default Hotels
