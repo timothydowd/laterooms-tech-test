@@ -18,8 +18,8 @@ export default class Checkboxes extends Component {
                     
                   return (
                     <div>
-                        <input type="checkbox" name={facility} value={facility} onChange={this.toggleCheckbox} /> 
-                        <label >{facility}</label> 
+                        <input type="checkbox" name={facility.facility} value={facility.facility} onChange={this.toggleCheckbox} /> 
+                        <label >{facility.facility}</label> 
                     </div>
                   )
                  })}
