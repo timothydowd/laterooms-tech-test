@@ -62,4 +62,4 @@ const filterHotelsByCheckedFacilities = (hotelData, extractedFacilities) => {
 }
 
 
-module.exports = { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites, filterHotelsByCheckedFacilities }
+module.exports = { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites, filterHotelsByCheckedFacilities, extractCheckedFacilities }

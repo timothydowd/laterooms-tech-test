@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Checkboxes from './components/Checkboxes'
 import Hotels from './components/Hotels'
-import { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites, filterHotelsByCheckedFacilities } from './utils/utils'
+import { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites, filterHotelsByCheckedFacilities, extractCheckedFacilities } from './utils/utils'
 const data = require('./data/data.json')
 
 
@@ -30,6 +30,13 @@ export default class App extends Component {
 
     componentDidUpdate(){
       console.log('checkBoxFacilities', this.state.checkboxFacilities)
+      console.log('this.filterHotels', this.filterHotels())
+    }
+
+    filterHotels(){
+      const extractedFacilitesFromCheckedBoxes = extractCheckedFacilities(this.state.checkboxFacilities)
+      const hotelsFilteredByFacilities = filterHotelsByCheckedFacilities(this.state.data, extractedFacilitesFromCheckedBoxes)
+      return hotelsFilteredByFacilities
     }
 
     toggleCheckedBoolean = (facility) => {
