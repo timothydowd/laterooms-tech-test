@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { getUniqueFacils } from '../utils/utils'
 
 export default class Checkboxes extends Component {
 

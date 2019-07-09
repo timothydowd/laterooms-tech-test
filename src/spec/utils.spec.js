@@ -1,7 +1,7 @@
 const { expect } = require('chai')
-const { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites } = require('../utils/utils')
 const  deepFreeze  = require('deep-freeze')
-// const data = require('../data/data.json')
+const { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites, filterHotelsByCheckedFacilities } = require('../utils/utils')
+
 
 describe('getUniqueFacils', () => {
     it('when passed an empty array it returns an empty array', () => {
@@ -127,5 +127,17 @@ describe('toggleCheckedBooleanInCheckboxFacilites', () => {
     const expected = [{ facility: 'pool', checked: false }, { facility: 'bar', checked: true }, { facility: 'restaurant', checked: false }]
     deepFreeze(checkBoxes)
     expect(toggleCheckedBooleanInCheckboxFacilites(checkBoxes, facility)).to.eql(expected)
+  });
+});
+
+describe('filterHotelsByCheckedFacilities', () => {
+  it('when passed an empty array of hotels and an empty array of checkbox facilites return no hotels', () => {
+    const hotelData = []
+    const checkBoxFacilities = []
+    const expected = []
+    deepFreeze(hotelData)
+    deepFreeze(checkBoxFacilities)
+
+    expect(filterHotelsByCheckedFacilities(hotelData, checkBoxFacilities)).to.eql(expected)
   });
 });
