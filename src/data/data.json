@@ -1,17 +1,47 @@
 [
-    {
-      "name": "hotelone",
-      "starRating": 5,
-      "facilities": ["car park", "pool"]
-    },
-    {
-      "name": "hoteltwo",
-      "starRating": 3,
-      "facilities": ["car park", "gym"]
-    },
-    {
-      "name": "hotelthree",
-      "starRating": 3,
-      "facilities": []
-    }
-  ]
+  {
+    "name": "hotelone",
+    "starRating": 5,
+    "facilities": ["car park", "pool"]
+  },
+  {
+    "name": "hoteltwo",
+    "starRating": 3,
+    "facilities": ["car park", "gym"]
+  },
+  {
+    "name": "hotelthree",
+    "starRating": 3,
+    "facilities": []
+  },
+  {
+    "name": "hotelfour",
+    "starRating": 5,
+    "facilities": ["car park", "golf course"]
+  },
+  {
+    "name": "hotelfive",
+    "starRating": 3,
+    "facilities": ["car park", "tennis courts", "spa"]
+  },
+  {
+    "name": "hotelsix",
+    "starRating": 3,
+    "facilities": ["pool table", "gardens", "games room"]
+  },
+  {
+    "name": "hotelseven",
+    "starRating": 5,
+    "facilities": ["bar", "pool"]
+  },
+  {
+    "name": "hoteleight",
+    "starRating": 3,
+    "facilities": ["car park", "gym", "restaurant"]
+  },
+  {
+    "name": "hotelnice",
+    "starRating": 3,
+    "facilities": ["pool", "spa", "sauna", "steam room"]
+  }
+]

@@ -12,7 +12,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [],
-      checkboxFacilities: []
+      checkboxFacilities: [],
+      filteredHotels: data
     }
   }
     
@@ -28,9 +29,13 @@ export default class App extends Component {
       })
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps, prevState){
       console.log('checkBoxFacilities', this.state.checkboxFacilities)
       console.log('this.filterHotels', this.filterHotels())
+      
+      if(prevState.checkboxFacilities !== this.state.checkboxFacilities){
+        this.setState({ filteredHotels: this.filterHotels()})
+      }
     }
 
     filterHotels(){
@@ -48,7 +53,7 @@ export default class App extends Component {
       return (
           <div>
             <Checkboxes toggleCheckedBoolean={this.toggleCheckedBoolean} checkboxFacilities={this.state.checkboxFacilities} data={this.state.data} />
-            <Hotels data={this.state.data} />
+            <Hotels data={this.state.filteredHotels} />
           </div>
       )
   }
