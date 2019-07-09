@@ -28,7 +28,8 @@ const addBooleanToCheckboxes = (uniqueFacilities) => {
 
 const toggleCheckedBooleanInCheckboxFacilites = (checkBoxFacilities, facility) => {
     const toggledCheckboxes = checkBoxFacilities.map(checkBox => {
-        return checkBox.facility === facility ? { ...checkBox, checked: !checkBox.checked } : checkBox 
+
+        return checkBox.facility === facility ? { facility: checkBox.facility , checked: !checkBox.checked } : checkBox 
     })
 
     return toggledCheckboxes
