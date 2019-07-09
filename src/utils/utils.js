@@ -28,16 +28,37 @@ const addBooleanToCheckboxes = (uniqueFacilities) => {
 
 const toggleCheckedBooleanInCheckboxFacilites = (checkBoxFacilities, facility) => {
     const toggledCheckboxes = checkBoxFacilities.map(checkBox => {
-
         return checkBox.facility === facility ? { facility: checkBox.facility , checked: !checkBox.checked } : checkBox 
     })
-
     return toggledCheckboxes
-    
 }
 
-const filterHotelsByCheckedFacilities = (hotelData, checkBoxFacilities) => {
- return []
+const extractCheckedFacilities = (checkBoxFacilities) => {
+    const extractedFacilities = checkBoxFacilities.reduce((accCheckedFacilities, checkbox) => {
+        return checkbox.checked ? [...accCheckedFacilities, checkbox.facility] : accCheckedFacilities
+    },[])
+    console.log('extractedFacilities', extractedFacilities)
+    return extractedFacilities
+}
+
+const filterHotelsByCheckedFacilities = (hotelData, extractedFacilities) => {
+    
+    if(extractedFacilities.length === 0) return hotelData
+    
+    const filteredHotels = hotelData.reduce((accHotels, hotel) => {
+        let counter = 0
+        extractedFacilities.forEach(facility => {
+            if(hotel.facilities.includes(facility)){
+                counter++
+            }
+        })
+
+        if(counter === extractedFacilities.length){
+            return [...accHotels, hotel]
+        } else return accHotels
+    },[])
+
+    return filteredHotels
 }
 
 
