@@ -1,5 +1,5 @@
 
-const getUniqueFacils = (data) => {
+export const getUniqueFacils = (data) => {
     
     
     const allFacils = data.reduce((accFacils, hotel) => {
@@ -14,7 +14,9 @@ const getUniqueFacils = (data) => {
 
 }
 
-const addBooleanToCheckboxes = (uniqueFacilities) => {
+
+
+export const addBooleanToCheckboxes = (uniqueFacilities) => {
     const booleanAdded = uniqueFacilities.map(uniqueFacility => {
         return { facility: uniqueFacility, checked: false }
     })
@@ -22,7 +24,9 @@ const addBooleanToCheckboxes = (uniqueFacilities) => {
     return booleanAdded
 }
 
-const toggleCheckedBooleanInCheckboxFacilites = (checkBoxFacilities, facility) => {
+
+
+export const toggleCheckedBooleanInCheckboxFacilites = (checkBoxFacilities, facility) => {
     const toggledCheckboxes = checkBoxFacilities.map(checkBox => {
         return checkBox.facility === facility ? { ...checkBox, checked: !checkBox.checked } : checkBox 
     })
@@ -30,4 +34,5 @@ const toggleCheckedBooleanInCheckboxFacilites = (checkBoxFacilities, facility) =
     return toggledCheckboxes
 }
 
-module.exports = { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites }
+
+// module.exports = { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites }

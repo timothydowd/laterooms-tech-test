@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Checkboxes from './components/Checkboxes'
 import Hotels from './components/Hotels'
-import { getUniqueFacils, addBooleanToCheckboxes } from './utils/utils'
+import { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites } from './utils/utils'
 const data = require('./data/data.json')
+// const { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites } = require('./utils/utils')
 
 
 export default class App extends Component {
@@ -20,7 +21,7 @@ export default class App extends Component {
 
       this.setState({
         data: data,
-        checkboxFacilities: addBooleanToCheckboxes(getUniqueFacils(data))
+        checkboxFacilities: (addBooleanToCheckboxes(getUniqueFacils(data)))
       })
     }
 
@@ -28,14 +29,15 @@ export default class App extends Component {
       console.log('checkBoxFacilities', this.state.checkboxFacilities)
     }
 
-    toggleCheckedBoolean(){
-      
+    toggleCheckedBoolean = (facility) => {
+      const toggledCheckboxes = toggleCheckedBooleanInCheckboxFacilites(this.state.checkboxFacilities, facility)
+      console.log('toggledCheckboxes', toggledCheckboxes)
     }
 
     render() {
       return (
           <div>
-            <Checkboxes checkboxFacilities={this.state.checkboxFacilities} data={this.state.data} />
+            <Checkboxes toggleCheckedBoolean={this.toggleCheckedBoolean} checkboxFacilities={this.state.checkboxFacilities} data={this.state.data} />
             <Hotels data={this.state.data} />
           </div>
       )

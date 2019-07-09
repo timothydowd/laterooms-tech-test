@@ -29,8 +29,8 @@ export default class Checkboxes extends Component {
 
     
 
-    toggleCheckbox (event) {
+    toggleCheckbox = (event) => {
         console.log('toggle: ', event.target.value)
-        
+        this.props.toggleCheckedBoolean(event.target.value)
     }
 }
