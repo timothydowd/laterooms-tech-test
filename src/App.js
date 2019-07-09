@@ -28,6 +28,10 @@ export default class App extends Component {
       console.log('checkBoxFacilities', this.state.checkboxFacilities)
     }
 
+    toggleCheckedBoolean(){
+      
+    }
+
     render() {
       return (
           <div>

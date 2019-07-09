@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { getUniqueFacils, addBooleanToCheckboxes } = require('../utils/utils')
+const { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites } = require('../utils/utils')
 const  deepFreeze  = require('deep-freeze')
 // const data = require('../data/data.json')
 
@@ -103,4 +103,29 @@ describe('addBooleanToCheckboxes', () => {
     expect(addBooleanToCheckboxes(uniqueFacilities)).to.eql(expected)
   });
 
+});
+
+describe('toggleCheckedBooleanInCheckboxFacilites', () => {
+  it('when passed an empty array of checkboxes and a facility returns an empty array of checkboxes', () => {
+    const checkBoxes = []
+    const facility = 'pool'
+    deepFreeze(checkBoxes)
+    expect(toggleCheckedBooleanInCheckboxFacilites(checkBoxes, facility)).to.eql([])
+  });
+
+  it('when passed an array containing 1 checkbox and a facility returns the facility in question with a checked boolean opposite to its previous value', () => {
+    const checkBoxes = [{ facility: 'pool', checked: false}]
+    const facility = 'pool'
+    const expected = [{ facility: 'pool', checked: true}]
+    deepFreeze(checkBoxes)
+    expect(toggleCheckedBooleanInCheckboxFacilites(checkBoxes, facility)).to.eql(expected)
+  });
+
+  it('when passed an array containing a number of checkboxes and a facility returns all checkboxes, and changes the checked boolean for the checkbox that matches the facility passed as an argument', () => {
+    const checkBoxes = [{ facility: 'pool', checked: false }, { facility: 'bar', checked: false }, { facility: 'restaurant', checked: false }]
+    const facility = 'bar'
+    const expected = [{ facility: 'pool', checked: false }, { facility: 'bar', checked: true }, { facility: 'restaurant', checked: false }]
+    deepFreeze(checkBoxes)
+    expect(toggleCheckedBooleanInCheckboxFacilites(checkBoxes, facility)).to.eql(expected)
+  });
 });

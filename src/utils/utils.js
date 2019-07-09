@@ -22,4 +22,12 @@ const addBooleanToCheckboxes = (uniqueFacilities) => {
     return booleanAdded
 }
 
-module.exports = { getUniqueFacils, addBooleanToCheckboxes }
+const toggleCheckedBooleanInCheckboxFacilites = (checkBoxFacilities, facility) => {
+    const toggledCheckboxes = checkBoxFacilities.map(checkBox => {
+        return checkBox.facility === facility ? { ...checkBox, checked: !checkBox.checked } : checkBox 
+    })
+
+    return toggledCheckboxes
+}
+
+module.exports = { getUniqueFacils, addBooleanToCheckboxes, toggleCheckedBooleanInCheckboxFacilites }

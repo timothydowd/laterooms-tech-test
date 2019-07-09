@@ -31,5 +31,6 @@ export default class Checkboxes extends Component {
 
     toggleCheckbox (event) {
         console.log('toggle: ', event.target.value)
+        
     }
 }
