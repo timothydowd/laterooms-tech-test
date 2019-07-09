@@ -14,4 +14,12 @@ const getUniqueFacils = (data) => {
 
 }
 
-module.exports = { getUniqueFacils }
+const addBooleanToCheckboxes = (uniqueFacilities) => {
+    const booleanAdded = uniqueFacilities.map(uniqueFacility => {
+        return { facility: uniqueFacility, checked: false }
+    })
+
+    return booleanAdded
+}
+
+module.exports = { getUniqueFacils, addBooleanToCheckboxes }

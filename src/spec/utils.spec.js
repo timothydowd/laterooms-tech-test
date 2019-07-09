@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { getUniqueFacils } = require('../utils/utils')
+const { getUniqueFacils, addBooleanToCheckboxes } = require('../utils/utils')
 const  deepFreeze  = require('deep-freeze')
 // const data = require('../data/data.json')
 
@@ -83,4 +83,24 @@ describe('getUniqueFacils', () => {
         deepFreeze(hotels)
         expect(getUniqueFacils(hotels)).to.eql(["car park", "pool", "gym", "bar", "lounge", "terrace", "sauna", "restaurant"])
       });
+});
+
+describe('addBooleanToCheckboxes', () => {
+  it('when passed an empty array returns an empty array', () => {
+    expect(addBooleanToCheckboxes(deepFreeze([]))).to.eql([])
+  });
+
+  it('when passed an array containing 1 facility, returns an array containing an object with a boolean set to false', () => {
+    const uniqueFacilities = ['pool']
+    const expected = [{ facility: 'pool', checked: false }]
+    deepFreeze(uniqueFacilities)
+    expect(addBooleanToCheckboxes(uniqueFacilities)).to.eql(expected)
+  });
+  it('when passed an array containing a number of facilities, returns an array of objects with a boolean set to false', () => {
+    const uniqueFacilities = ['pool', 'bar', 'restaurant']
+    const expected = [{ facility: 'pool', checked: false }, { facility: 'bar', checked: false }, { facility: 'restaurant', checked: false }]
+    deepFreeze(uniqueFacilities)
+    expect(addBooleanToCheckboxes(uniqueFacilities)).to.eql(expected)
+  });
+
 });
